@@ -82,6 +82,7 @@ st.title('Filtrado de Señales')
 datosCol, espacioCol, graficosCol = st.columns((3,1,6))
 
 with datosCol:
+    st.info('App para el filtrado de señales, desde 0.1 Hz hasta la frecuencia deseada de corte')
     st.header('Subir archivo')
     file = st.file_uploader('Archivo en formato CSV',type='csv')
     if file is not None:
