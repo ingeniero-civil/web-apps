@@ -206,6 +206,7 @@ with st.sidebar:
 
         # Slider para seleccionar la frecuencia de corte
         fs = modelo.fs
+        st.write(round(fs/2,0)-0.1)
         fi, fc = st.slider(label='Escoger la frecuencia de corte',
                            max_value = round(fs/2,0)-0.1,
                            value=[0.0,round(fs/2,0)-0.1],
