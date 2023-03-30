@@ -13,8 +13,10 @@ class Modelo:
     def __init__(self, df):
         self.df = df
         
-        #self.t = pd.to_datetime(df['YYYY-MO-DD HH-MI-SS_SSS'],format='%Y-%m-%d %H:%M:%S:%f')
-        self.t = pd.to_datetime(df['time'].astype('int64'),unit='ns')
+        try:
+            self.t = pd.to_datetime(df['YYYY-MO-DD HH-MI-SS_SSS'],format='%Y-%m-%d %H:%M:%S:%f')
+        except:
+            self.t = pd.to_datetime(df['time'].astype('int64'),unit='ns')
         df['DS'] = self.t
         self.ts = self.t.diff().dt.total_seconds().median()
         self.fs = 1/self.ts
