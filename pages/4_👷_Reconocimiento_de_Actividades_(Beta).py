@@ -447,11 +447,10 @@ with st.sidebar:
         
 if file is not None:
     
-    st.write(os.listdir())
-    lr_model = joblib.load('../models/logistic-model-ar-rev02.joblib')
-    lr_scaler = joblib.load('../models/logistic-model-ar-scaler-rev02.joblib')
-    #lr_function = joblib.load('../models/logistic-model-get-params-function.joblib')
-    get_x_params = pickle.load(open('../models/logistic-model-get-params-function.joblib', 'rb'))
+    lr_model = joblib.load('models/logistic-model-ar-rev02.joblib')
+    lr_scaler = joblib.load('models/logistic-model-ar-scaler-rev02.joblib')
+    #lr_function = joblib.load('models/logistic-model-get-params-function.joblib')
+    get_x_params = pickle.load(open('models/logistic-model-get-params-function.joblib', 'rb'))
     
     #X_test = modelo.get_x_params(df)
     X_test = get_x_params(df)
