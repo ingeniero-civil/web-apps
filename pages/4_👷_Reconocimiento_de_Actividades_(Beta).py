@@ -409,15 +409,15 @@ class Modelo:
 
 ########## VISTA ##########
 st.set_page_config(layout = 'wide',page_title='Filtrado de Señales', page_icon="📈")
-st.title('Filtrado de Señales')
+st.title('Reconocimiento de Actividades')
 
-st.info('''App para el filtrado de señales, desde 0.1 Hz hasta la frecuencia deseada de corte.
+st.info('''App para el reconocimiento de actividades a partir de datos de acelerómetro.
 '''
        )
 
 ## Sidebar
 with st.sidebar:
-    st.header('Filtrado de Señales')
+    st.header('Reconocimiento de Actividades')
     st.header('Subir archivo')
     file = st.file_uploader('Archivo en formato CSV',type='csv')
     if file is not None:
@@ -450,10 +450,10 @@ if file is not None:
     lr_model = joblib.load('models/logistic-model-ar-rev02.joblib')
     lr_scaler = joblib.load('models/logistic-model-ar-scaler-rev02.joblib')
     #lr_function = joblib.load('models/logistic-model-get-params-function.joblib')
-    get_x_params = pickle.load(open('models/logistic-model-get-params-function.joblib', 'rb'))
+    #get_x_params = pickle.load(open('models/logistic-model-get-params-function.joblib', 'rb'))
     
-    #X_test = modelo.get_x_params(df)
-    X_test = get_x_params(df)
+    X_test = modelo.get_x_params(df)
+    #X_test = get_x_params(df)
     X_scaled = lr_scaler.transform(X_test)
     Y_pred = lr_model.predict(X_scaled)
     
