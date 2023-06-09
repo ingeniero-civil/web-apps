@@ -465,9 +465,9 @@ if file is not None:
  
 
     # Para graficar los datos sin filtrar
-    st.subheader('Datos sin Analizar')
+    st.subheader('Señales de Acelerómetro')
     st.plotly_chart(modelo.graficar_columna('y', actividad=None),use_container_width=True)
     
     # Para graficar los datos sin filtrar
-    st.subheader('Datos sin Analizar')
+    st.subheader('Actividades Identificadas')
     st.plotly_chart(modelo.graficar_columna('y', actividad='TODAS'),use_container_width=True)
