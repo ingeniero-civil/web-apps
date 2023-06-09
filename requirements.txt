@@ -6,3 +6,4 @@ matplotlib==3.4.2
 geopy==2.2.0
 openpyxl==3.0.10
 joblib==1.1.0
+scikit-learn==1.1.2
