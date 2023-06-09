@@ -8,7 +8,7 @@ def run():
 
     st.write("# Bienvenidos! 👷‍♂️")
 
-    st.sidebar.success("Selecciona una de las siguientes opciones 👆🏽")
+    #st.sidebar.success("Selecciona una de las siguientes opciones 👆🏽")
 
     st.markdown(
         """
