@@ -447,6 +447,7 @@ with st.sidebar:
         
 if file is not None:
     
+    st.write(os.listdir())
     lr_model = joblib.load('../models/logistic-model-ar-rev02.joblib')
     lr_scaler = joblib.load('../models/logistic-model-ar-scaler-rev02.joblib')
     #lr_function = joblib.load('../models/logistic-model-get-params-function.joblib')
