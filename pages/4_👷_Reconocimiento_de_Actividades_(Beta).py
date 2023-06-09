@@ -10,7 +10,7 @@ from io import StringIO
 import joblib, pickle
 from scipy.signal import find_peaks
 from scipy import stats
-
+import os
 
 ########## MODELO ##########
 class Modelo:
