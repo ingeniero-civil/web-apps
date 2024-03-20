@@ -61,6 +61,9 @@ class Modelo:
         
         return fig
 
+    def convert_df(self,x,y):
+        return pd.DataFrame([x,y]).T.rename(columns={0:'x',1:'y'}).to_csv(index=False).encode('utf-8')
+
 ########## VISTA ##########
 st.set_page_config(layout = 'wide',page_title='Curvas Penetración - Esfuerzo', page_icon="📈")
 st.title('Curvas Penetración - Esfuerzo')
@@ -109,14 +112,13 @@ with st.sidebar:
         
         
         # Botón para descargar los datos filtrados
-#         st.subheader('Descargar Datos Filtrados')
-#         yFiltrado = modelo.filtrar_columna(columna,[fi,fc])
-#         csv = modelo.convert_df(yFiltrado,columna)
-#         st.download_button(
-#             label="Descargar datos como CSV",
-#             data=csv,
-#             file_name='valores_filtrados.csv',
-#             mime='text/csv')
+        st.subheader('Descargar Datos de Tangente')
+        csv = modelo.convert_df(x_tan,y_tan)
+        st.download_button(
+            label="Descargar datos como CSV",
+            data=csv,
+            file_name='linea_tangente.csv',
+            mime='text/csv')
         
         
         
