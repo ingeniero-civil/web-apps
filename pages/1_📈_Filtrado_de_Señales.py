@@ -16,7 +16,10 @@ class Modelo:
         try:
             self.t = pd.to_datetime(df['YYYY-MO-DD HH-MI-SS_SSS'],format='%Y-%m-%d %H:%M:%S:%f')
         except:
-            self.t = pd.to_datetime(df['time'].astype('int64'),unit='ns')
+            try:
+                self.t = pd.to_datetime(df['time'].astype('int64'),unit='ns')
+            except:
+                self.t = pd.to_datetime(df['time'])
         df['DS'] = self.t
         self.ts = self.t.diff().dt.total_seconds().median()
         self.fs = 1/self.ts
