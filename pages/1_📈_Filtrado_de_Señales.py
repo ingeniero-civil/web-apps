@@ -23,7 +23,7 @@ class Modelo:
                 dt_aux = ts_aux.diff().dt.total_seconds().mean()
                 self.t = pd.date_range(ts_aux[0], periods=len(ts_aux), freq=f'{round(dt_aux*1000,6)}ms').values
         df['DS'] = self.t
-        self.ts = self.t.diff().dt.total_seconds().median()
+        self.ts = df['DS'].diff().dt.total_seconds().median()
         self.fs = 1/self.ts
         
     def transformada_fourier(self, y, ts):
