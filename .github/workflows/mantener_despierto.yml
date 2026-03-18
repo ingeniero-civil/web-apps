@@ -1,0 +1,15 @@
+name: Mantener Streamlit Activo
+
+on:
+  schedule:
+    # Se ejecuta cada 6 horas (minuto 0 de las horas 0, 6, 12, 18)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar petición a la Web
+        run: |
+          curl -I https://ingeniero-civil.github.io/
