@@ -1,14 +1,24 @@
-name: Mantener Streamlit Activo
+name: Despertador de Streamlit via Commit
 
 on:
   schedule:
-    # Se ejecuta cada 6 horas (minuto 0 de las horas 0, 6, 12, 18)
-    - cron: '0 */6 * * *'
-  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+    - cron: '0 */6 * * *' # Se ejecuta cada 6 horas
+  workflow_dispatch:      # Para que puedas probarlo con el botón manual
 
 jobs:
-  ping:
+  update-repo:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Enviar petición a la Web
-        run: curl -L --max-redirs 5 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Actualizar archivo de actividad
+        run: |
+          echo "Último pulso de actividad: $(date)" > keep_alive.txt
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+          git add keep_alive.txt
+          git commit -m "Keep-alive: Despertando app (Automático)" || echo "No hay cambios para subir"
+          git push
