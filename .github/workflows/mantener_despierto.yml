@@ -11,5 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Enviar petición a la Web
-        run: |
-          curl -L https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/ > /dev/null
+        run: curl -L https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/ > /dev/null
