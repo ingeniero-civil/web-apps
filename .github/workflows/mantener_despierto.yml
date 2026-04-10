@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Enviar petición a la Web
-        run: curl -L --max-redirs 10 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/
+        run: curl -L --max-redirs 5 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/
