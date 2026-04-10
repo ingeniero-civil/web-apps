@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Enviar petición a la Web
         run: |
-          curl -I https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/
+          curl -L https://ingeniero-civil-web-apps-home-xtt9fb.streamlit.app/ > /dev/null
